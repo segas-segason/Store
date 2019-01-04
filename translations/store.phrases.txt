@@ -754,7 +754,7 @@
     {
         "#format" "{1:d}"
         "en" "You earn {green} {1} credits"
-        "ru" "Вы получили {green} {1} кридитов"
+        "ru" "Вы получили {green} {1} кредитов"
         "chi" "你获得了{green} {1} 信用点"
     }
     
