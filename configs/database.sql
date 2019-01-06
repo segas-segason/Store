@@ -38,7 +38,7 @@ CREATE TABLE `store_items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `player_id` int(11) NOT NULL,
   `type` varchar(16) NOT NULL,
-  `unique_id` varchar(192) NOT NULL DEFAULT '',
+  `unique_id` varchar(191) NOT NULL DEFAULT '',
   `date_of_purchase` int(11) unsigned NOT NULL DEFAULT '0',
   `date_of_expiration` int(11) unsigned NOT NULL DEFAULT '0',
   `price_of_purchase` int(11) unsigned NOT NULL DEFAULT '1',
@@ -104,20 +104,6 @@ CREATE TABLE `store_item_child` (
   PRIMARY KEY (`type`,`uid`),
   KEY `p` (`parent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- if u upgrade from 2.0, exec this in your database
-ALTER TABLE `store_item_child`
-ADD `idle` varchar(32) NOT NULL DEFAULT 'ITEM_NO_IDLE' COMMENT 'pet',
-ADD `run` varchar(32) NOT NULL DEFAULT 'ITEM_NO_RUN' COMMENT 'pet',
-ADD `death` varchar(32) NOT NULL DEFAULT 'ITEM_NO_DEATH' COMMENT 'pet',
-ADD `seed` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'weaponskin',
-ADD `weart` tinyint(3) NOT NULL DEFAULT '-1' COMMENT 'weaponskin',
-ADD `paint` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT 'weaponskin',
-ADD `wearf` float(7,6) unsigned NOT NULL DEFAULT '0.01' COMMENT 'weaponskin';
-
--- if u upgrade from 2.2
-ALTER TABLE `store_item_child`
-MODIFY `case` TINYINT(2) DEFAULT 0 NOT NULL;
 
 CREATE TABLE `store_equipment` (
   `player_id` int(11) NOT NULL,
