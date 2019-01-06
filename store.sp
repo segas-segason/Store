@@ -7,7 +7,7 @@
 #define PLUGIN_NAME         "Store - The Resurrection"
 #define PLUGIN_AUTHOR       "Kyle"
 #define PLUGIN_DESCRIPTION  "a sourcemod store system"
-#define PLUGIN_VERSION      "2.3.<commit_count>"
+#define PLUGIN_VERSION      "2.3.1"
 #define PLUGIN_URL          "https://kxnrl.com"
 
 public Plugin myinfo = 
@@ -33,7 +33,7 @@ public Plugin myinfo =
 //////////////////////////////
 
 // Server
-#define <Compile_Environment>
+#define GM_BH
 //GM_TT -> ttt server
 //GM_ZE -> zombie escape server
 //GM_MG -> mini games server
@@ -152,7 +152,7 @@ char g_szCase[4][32] = {"", "Normal Case", "Advanced Case", "Ultima Case"};
 #include "store/grenades.sp"
 #endif
 // Module Spray
-#if defined GM_TT || defined GM_ZE || defined GM_MG || defined GM_JB || defined GM_HZ || defined GM_HG || defined GM_SR || defined GM_KZ || defined GM_BH
+#if defined GM_TT || defined GM_ZE || defined GM_MG || defined GM_JB || defined GM_HZ || defined GM_HG || defined GM_SR || defined GM_KZ
 #include "store/sprays.sp"
 #endif
 // Module FPVMI
@@ -160,7 +160,7 @@ char g_szCase[4][32] = {"", "Normal Case", "Advanced Case", "Ultima Case"};
 #include "store/models.sp"
 #endif
 // Module Sound
-#if defined GM_TT || defined GM_ZE || defined GM_MG || defined GM_JB || defined GM_HG || defined GM_SR || defined GM_KZ || defined GM_BH
+#if defined GM_TT || defined GM_ZE || defined GM_MG || defined GM_JB || defined GM_HG || defined GM_SR || defined GM_KZ
 #include "store/sounds.sp"
 #endif
 
@@ -187,7 +187,6 @@ public void OnPluginStart()
 
     // Register Commands
     RegConsoleCmd("sm_store",       Command_Store);
-    RegConsoleCmd("buyammo1",       Command_Store);
     RegConsoleCmd("sm_shop",        Command_Store);
     RegConsoleCmd("sm_inv",         Command_Inventory);
     RegConsoleCmd("sm_inventory",   Command_Inventory);
